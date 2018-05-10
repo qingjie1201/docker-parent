@@ -1,0 +1,2 @@
+webpackJsonp([266],{mzOl:function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var a=n("RoA3"),r={data:function(){return{targetURL:a.CommonDictURL}},components:{KalixBasedictView:n("TvRo").default},methods:{}},i={render:function(){var t=this.$createElement;return(this._self._c||t)("kalix-basedict-view",{attrs:{targetURL:this.targetURL}})},staticRenderFns:[]},s=n("VU/8")(r,i,!1,null,null,null);e.default=s.exports}});
+//# sourceMappingURL=266.8bce85389f026dbc6561.js.map
