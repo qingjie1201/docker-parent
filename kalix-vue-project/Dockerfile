@@ -23,7 +23,7 @@ RUN yum install -y nginx
 # 添加我们自己的配置 default.conf 在下面
 ADD default.conf /etc/nginx/conf.d/
 # 安装kalix-vue-project项目，把dist文件夹下的文件copy到nginx下面去
-COPY vue-dist/ /usr/share/nginx/html/
+COPY dist/ /usr/share/nginx/html/
 
 RUN mkdir -p /var/log/supervisor
 COPY supervisord.conf /etc/supervisord.conf
