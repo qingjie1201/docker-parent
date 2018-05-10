@@ -18,6 +18,8 @@ $ cd /home/vue-develop/project
 
 $ git clone https://github.com/qingjie1201/docker-parent.git
 
+$ git pull origin master
+
 $ docker build -t kalix-vue-project:v0.0.1 /home/vue-develop/project/docker-parent/kalix-vue-project
 ```
 
