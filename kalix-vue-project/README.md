@@ -40,3 +40,24 @@ $ docker ps
 ```
 
 访问 http://192.168.0.227:8282
+
+
+## 提交到网易云服务平台进行管理
+
+```
+$ docker tag kalix-vue-project:v0.0.1 hub.c.163.com/xing1201/kalix-vue-project:v0.0.1
+```
+
+### 登录网易云基础服务私有镜像仓库
+
+```
+$ docker login hub.c.163.com
+
+需要填写登录云基础服务时的账户名称和密码。
+```
+
+### 将新镜像上传至私有镜像仓库
+
+```
+$ docker push hub.c.163.com/xing1201/kalix-vue-project:v0.0.1
+```
