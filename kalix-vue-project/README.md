@@ -31,6 +31,13 @@ $ docker build -t kalix-vue-project:v0.0.1 /home/vue-develop/project/docker-pare
 $ docker run -d --name kalix-vue-project -p 8282:8282 -e "KALIX_SERVER_URL=http://192.168.0.221:8181" kalix-vue-project:v0.0.1
 
 $ docker run -d --name kalix-vue-project -p 8282:8282 -p 3000:3000 -e "KALIX_SERVER_URL=http://192.168.0.221:8181" kalix-vue-project:v0.0.1
+
+$ docker run -d --name kalix-vue-project \
+  -p 8282:8282 \
+  -p 3000:3000 \
+  -e "KALIX_SERVER_URL=http://192.168.0.221:8181" \
+  kalix-vue-project:v0.0.1 \
+  sh -c 'node /home/app-develop/project/kalix-express-project/bin/www && /usr/sbin/nginx'
 ```
 
 ## 查看运行结果
