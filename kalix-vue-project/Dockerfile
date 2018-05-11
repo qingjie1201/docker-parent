@@ -3,12 +3,9 @@
 FROM centos:centos7
 # 作者
 MAINTAINER HQJ "150091225@qq.com"
-
 # 运行命令
-# 安装Supervisor进程管理工具，只能管理非daemon的进程
+# centos衍生发行版
 RUN yum install -y epel-release
-RUN yum install -y supervisor
-
 # 安装nginx
 RUN yum install -y nginx
 
@@ -21,6 +18,9 @@ RUN yum install -y nginx
 ADD node-v8.11.1-linux-x64/node-v8.11.1-linux-x64.tar.gz /usr/local/node/
 RUN ln -s /usr/local/node/node-v8.11.1-linux-x64/bin/node /usr/local/bin/node \
   && ln -s /usr/local/node/node-v8.11.1-linux-x64/bin/npm /usr/local/bin/npm
+
+# 安装Supervisor进程管理工具，只能管理非daemon的进程
+RUN yum install -y supervisor
 
 # RUN mkdir -p /var/log/supervisor
 COPY supervisord.conf /etc/supervisord.conf
