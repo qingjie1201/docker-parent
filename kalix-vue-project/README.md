@@ -13,6 +13,7 @@ git clone https://github.com/qingjie1201/kalix-express-project.git
 
 ## 使用Dockerfile构建镜像
 
+默认使用Dockerfile
 ```
 $ cd /home/vue-develop/project
 
@@ -25,19 +26,28 @@ $ git pull origin master
 $ docker build -t kalix-vue-project:v0.0.1 /home/vue-develop/project/docker-parent/kalix-vue-project
 ```
 
+如果使用Dockerfile1，则需要Dockerfile1替换Dockerfile(区别：启动方法不同)
+```
+$ docker build -t kalix-vue-project:v0.0.2 /home/vue-develop/project/docker-parent/kalix-vue-project
+```
+
 ## 运行Docker镜像
 
+默认使用Dockerfile
 ```
 $ docker run -d --name kalix-vue-project -p 8282:8282 -e "KALIX_SERVER_URL=http://192.168.0.221:8181" kalix-vue-project:v0.0.1
 
 $ docker run -d --name kalix-vue-project -p 8282:8282 -p 3000:3000 -e "KALIX_SERVER_URL=http://192.168.0.221:8181" kalix-vue-project:v0.0.1
+```
 
+使用Dockerfile1，注意启动顺序和使用镜像版本号
+```
 $ docker run -d --name kalix-vue-project \
   -p 8282:8282 \
   -p 3000:3000 \
   -e "KALIX_SERVER_URL=http://192.168.0.221:8181" \
-  kalix-vue-project:v0.0.1 \
-  sh -c 'node /home/app-develop/project/kalix-express-project/bin/www && /usr/sbin/nginx'
+  kalix-vue-project:v0.0.2 \
+  sh -c "/usr/sbin/nginx && node /home/app-develop/project/kalix-express-project/bin/www"
 ```
 
 ## 查看运行结果
@@ -53,6 +63,8 @@ $ docker ps
 
 ```
 $ docker tag kalix-vue-project:v0.0.1 hub.c.163.com/xing1201/kalix-vue-project:v0.0.1
+
+$ docker tag kalix-vue-project:v0.0.2 hub.c.163.com/xing1201/kalix-vue-project:v0.0.2
 ```
 
 ### 登录网易云基础服务私有镜像仓库
@@ -67,4 +79,6 @@ $ docker login hub.c.163.com
 
 ```
 $ docker push hub.c.163.com/xing1201/kalix-vue-project:v0.0.1
+
+$ docker push hub.c.163.com/xing1201/kalix-vue-project:v0.0.2
 ```
