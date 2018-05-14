@@ -82,3 +82,15 @@ $ docker push hub.c.163.com/xing1201/kalix-vue-project:v0.0.1
 
 $ docker push hub.c.163.com/xing1201/kalix-vue-project:v0.0.2
 ```
+
+### 使用镜像仓库
+
+```
+$ docker pull hub.c.163.com/xing1201/kalix-vue-project:v0.0.1
+
+$ docker pull hub.c.163.com/xing1201/kalix-vue-project:v0.0.2
+```
+
+v0.0.1版本：docker run启动通过sh -c命令设置，且注意启动顺序，见上
+
+v0.0.2版本：启动命令在Dockerfile中设置，docker run默认即可
