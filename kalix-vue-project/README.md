@@ -23,21 +23,21 @@ $ cd /home/vue-develop/project/docker-parent
 
 $ git pull origin master
 
-$ docker build -t kalix-vue-project:v0.0.1 /home/vue-develop/project/docker-parent/kalix-vue-project
+$ docker build -t kalix-vue-project:v0.0.2 /home/vue-develop/project/docker-parent/kalix-vue-project
 ```
 
 如果使用Dockerfile1，则需要Dockerfile1替换Dockerfile(区别：启动方法不同)
 ```
-$ docker build -t kalix-vue-project:v0.0.2 /home/vue-develop/project/docker-parent/kalix-vue-project
+$ docker build -t kalix-vue-project:v0.0.1 /home/vue-develop/project/docker-parent/kalix-vue-project
 ```
 
 ## 运行Docker镜像
 
 默认使用Dockerfile
 ```
-$ docker run -d --name kalix-vue-project -p 8282:8282 -e "KALIX_SERVER_URL=http://192.168.0.221:8181" kalix-vue-project:v0.0.1
+$ docker run -d --name kalix-vue-project -p 8282:8282 -e "KALIX_SERVER_URL=http://192.168.0.221:8181" kalix-vue-project:v0.0.2
 
-$ docker run -d --name kalix-vue-project -p 8282:8282 -p 3000:3000 -e "KALIX_SERVER_URL=http://192.168.0.221:8181" kalix-vue-project:v0.0.1
+$ docker run -d --name kalix-vue-project -p 8282:8282 -p 3000:3000 -e "KALIX_SERVER_URL=http://192.168.0.221:8181" kalix-vue-project:v0.0.2
 ```
 
 使用Dockerfile1，注意启动顺序和使用镜像版本号
@@ -46,7 +46,7 @@ $ docker run -d --name kalix-vue-project \
   -p 8282:8282 \
   -p 3000:3000 \
   -e "KALIX_SERVER_URL=http://192.168.0.221:8181" \
-  kalix-vue-project:v0.0.2 \
+  kalix-vue-project:v0.0.1 \
   sh -c "/usr/sbin/nginx && node /home/app-develop/project/kalix-express-project/bin/www"
 ```
 
